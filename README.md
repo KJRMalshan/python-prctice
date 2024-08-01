@@ -1,1 +1,2 @@
 # python-prctice
+print("Hello")

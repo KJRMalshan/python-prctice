@@ -2,46 +2,74 @@
 #These functions should cover Task 2
 
 def add(a,b):
-    if choice == "+" :
-        return a + b
+    return a + b
     
 def subtract(a,b):
-    if choice == "-":
-        return a - b
-    
-def mltiply(a,b):
-    if choice == "*":
-        return a * b
+    return a - b
+
+def multiply(a,b):
+    return a * b
     
 def devide(a,b):
-    if choice == "/":
+    try:
         return a/b
+    except:
+        print("float division by zero.")
     
 def power(a,b):
-    if choice == "^":
-        return a ** b
+    return a ** b
     
 def reminder(a,b):
-    if  choice == "%":
-        return a % b
+    return a % b
     
 
+def select_op(choice):
+    if choice == "#":
+        return -1
+    elif choice == "$":
+        return 0
+    elif choice in ("+","-","/","*","^","%"):
+        while (True):
+            num1 = str(input("Input first number: "))
+            if num1 == "#":
+                return -1
+            elif num1 == "$":
+                return 0 
+            try:
+                num1 = float(num1)
+                break
+            except:
+                print("Not a vallid number, Please enter a valid number!")
+                continue
 
+        while (True):
+            num2 = str(input("Enter second number: "))
+            if num2 == "#":
+                return -1
+            elif num2 == "$":
+                return 0 
+            try:
+                num2 = float(num2)
+                break
+            except:
+                print("Not a vallid number, Please enter a valid number!")
+                continue
 
+        if choice == "+":
+            print( num1,"+",num2,"=", add(num1, num2))
+        elif choice == "-":
+            print(num1,"-",num2,"=", subtract(num1,num2))
+        elif choice == "*":
+            print(num1,"*",num2,"=", multiply(num1,num2))
+        elif choice == "/":
+            print(num1,"/",num2, "=", devide(num1,num2))
+        elif choice == "^":
+            print(num1,"^",num2, "=", power(num1,num2))
+        elif choice == "%":
+            print(num1,"%",num2, "=" , reminder(num1,num2))
+        else:
+            print("Something Went Wrong")
 
-#-------------------------------------
-#TODO: Write the select_op(choice) function here
-#This function sould cover Task 1 (Section 2) and Task 3
-
-
-       
-
-
-
-#End the select_op(choice) function here
-#-------------------------------------
-#This is the main loop. It covers Task 1 (Section 1)
-#YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE
 while True:
   print("Select operation.")
   print("1.Add      : + ")
@@ -58,7 +86,6 @@ while True:
   choice = input("Enter choice(+,-,*,/,^,%,#,$): ")
   print(choice)
   if(select_op(choice) == -1):
-
     #program ends here
     print("Done. Terminating")
     exit()

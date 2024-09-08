@@ -1,2 +1,2 @@
 # python-prctice
-print("Hello")
+

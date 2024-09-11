@@ -86,6 +86,6 @@ while True:
   choice = input("Enter choice(+,-,*,/,^,%,#,$): ")
   print(choice)
   if(select_op(choice) == -1):
-    #program ends here
+    #program ends  thnk you
     print("Done. Terminating")
     exit()
